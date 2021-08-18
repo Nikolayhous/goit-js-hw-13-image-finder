@@ -6,6 +6,7 @@ import LoadMoreBtn from './load-more-btn';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 
+
 const loadMoreBtn = new LoadMoreBtn({
     selector: '[data-action="load-more"]',
     hidden: true,
@@ -13,10 +14,9 @@ const loadMoreBtn = new LoadMoreBtn({
 
 const newApiService = new apiService();
 
-
 refs.searchForm.addEventListener('submit', onSearchImages);
 loadMoreBtn.refs.button.addEventListener('click', fetchArticles);
-
+loadMoreBtn.refs.button.addEventListener('click', scroll);
 
 function onSearchImages(e) {
     e.preventDefault();
@@ -31,10 +31,9 @@ if(newApiService.query === '') {
 }
     loadMoreBtn.show();
     newApiService.resetPage();
-    clearInput()
+    clearInput();
     fetchArticles();
 };
-
 
 function fetchArticles() {
     loadMoreBtn.disable();
@@ -44,22 +43,24 @@ function fetchArticles() {
     });
 }
 
-
-
 function appendArticlesMarkup(hits) {
     refs.galleryList.insertAdjacentHTML('beforeend', itemCardsImage(hits));
 }
-
 
 function clearInput() {
     refs.galleryList.innerHTML = ''; 
 }
 
-
-function FetchError(Error) {
-    Error;
-  }
-
-
-
-
+function scroll() {
+    try {
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          block: 'end',
+          behavior: 'smooth',
+        });
+      }, 500);
+      fetchImg();
+    } catch (error) {
+    }
+}
