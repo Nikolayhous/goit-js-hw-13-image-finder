@@ -5,7 +5,7 @@ import LoadMoreBtn from './load-more-btn';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-import { error } from '@pnotify/core';
+import { error, alert } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 
 
@@ -39,7 +39,7 @@ if(newApiService.query === '') {
 if(newApiService.query.length === 0)
 loadMoreBtn.show();
 loadMoreBtn.disable();
-return error({
+return alert({
     text: 'The search data was entered incorrectly.',
     delay: 2500,
 });  
