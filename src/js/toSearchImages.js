@@ -27,6 +27,7 @@ function onSearchImages(e) {
     e.preventDefault();
    
 newApiService.query = e.currentTarget.elements.query.value;
+
 if(newApiService.query === '') {
     loadMoreBtn.show();
     loadMoreBtn.disable();
@@ -36,18 +37,23 @@ if(newApiService.query === '') {
     });  
 } 
 
-fetchArticles()
+loadMoreBtn.show();
+loadMoreBtn.disable();
 clearInput()
-// else if(newApiService.query.length === 0) {
-// loadMoreBtn.show();
-// loadMoreBtn.disable();
-// fetchArticles()
-// clearInput()
-// return alert({
-//     text: 'The search data was entered incorrectly.',
-//     delay: 2500,
-// }); 
-//  }
+fetchArticles()
+
+
+// if (newApiService.query.length === 0) {
+//     loadMoreBtn.show();
+//     loadMoreBtn.disable();
+//     fetchArticles()
+//     clearInput()
+//     return alert({
+//         text: 'The search data was entered incorrectly.',
+//         delay: 2500,
+//     }); 
+//      }
+
 
 };
 
