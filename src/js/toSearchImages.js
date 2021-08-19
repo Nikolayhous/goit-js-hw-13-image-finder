@@ -36,13 +36,19 @@ if(newApiService.query === '') {
     });  
 } 
 
-if(newApiService.query.length === 0)
-loadMoreBtn.show();
-loadMoreBtn.disable();
-return alert({
-    text: 'The search data was entered incorrectly.',
-    delay: 2500,
-});  
+fetchArticles()
+clearInput()
+// else if(newApiService.query.length === 0) {
+// loadMoreBtn.show();
+// loadMoreBtn.disable();
+// fetchArticles()
+// clearInput()
+// return alert({
+//     text: 'The search data was entered incorrectly.',
+//     delay: 2500,
+// }); 
+//  }
+
 };
 
 function fetchArticles() {
