@@ -1,9 +1,26 @@
+:root {
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-duration: 250ms;
+  }
+
 .gallery__list {
     display: flex;
     flex-wrap: wrap;
     margin-top: -30px;
     margin-left: -30px;
     margin-bottom: 20px;
+}
+
+.gallery__link {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    transition: transform var(--animation-duration) var(--timing-function);
+
+    &:hover {
+        cursor: zoom-in;
+        transform: scale(1.03);
+    }
 }
 
 .gallery__item {
@@ -17,7 +34,7 @@
     width: 100%;
     height: 175px;
     margin-bottom: 10px;
-    cursor: zoom-in;
+
 }
 
 .stats {

@@ -2,6 +2,8 @@ import { refs } from './refs';
 import apiService from './apiService';
 import itemCardsImage from '../templates/image-card.hbs'
 import LoadMoreBtn from './load-more-btn';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
@@ -14,9 +16,12 @@ const loadMoreBtn = new LoadMoreBtn({
 
 const newApiService = new apiService();
 
+
 refs.searchForm.addEventListener('submit', onSearchImages);
 loadMoreBtn.refs.button.addEventListener('click', fetchArticles);
 loadMoreBtn.refs.button.addEventListener('click', scroll);
+refs.galleryList.addEventListener('click', onClickBasicLightbox);
+
 
 function onSearchImages(e) {
     e.preventDefault();
@@ -26,13 +31,18 @@ if(newApiService.query === '') {
     loadMoreBtn.show();
     loadMoreBtn.disable();
     return error({
-        text: 'Enter data to search for pictures. For example <cat>'
+        text: 'Enter data to search for pictures. For example <cat>',
+        delay: 1000,
     });  
-}
-    loadMoreBtn.show();
-    newApiService.resetPage();
-    clearInput();
-    fetchArticles();
+} 
+
+if(newApiService.query.length === 0)
+loadMoreBtn.show();
+loadMoreBtn.disable();
+return error({
+    text: 'The search data was entered incorrectly.',
+    delay: 2500,
+});  
 };
 
 function fetchArticles() {
@@ -64,3 +74,17 @@ function scroll() {
     } catch (error) {
     }
 }
+
+
+function onClickBasicLightbox(e) {
+    e.preventDefault();
+    if(e.currentTarget.nodeName === 'IMG') {
+   return 
+    } else {
+        
+    const instance = basicLightbox.create(`
+        <img src="${e.target.dataset.source}" width="800" height="600">
+    `)
+    instance.show();
+    }
+    };
