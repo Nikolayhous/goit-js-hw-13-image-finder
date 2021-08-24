@@ -53,8 +53,7 @@ fetchArticles()
 //         delay: 2500,
 //     }); 
 //      }
-
-
+refs.input.value = '';
 };
 
 function fetchArticles() {
@@ -63,6 +62,7 @@ function fetchArticles() {
         appendArticlesMarkup(hits);
         loadMoreBtn.enable();
     });
+
 }
 
 function appendArticlesMarkup(hits) {
