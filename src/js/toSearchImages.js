@@ -33,7 +33,7 @@ if(newApiService.query === '') {
     loadMoreBtn.disable();
     return error({
         text: 'Enter data to search for pictures. For example <cat>',
-        delay: 1000,
+        delay: 2000,
     });  
 } 
 
