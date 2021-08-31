@@ -10,6 +10,36 @@
   button.is-hidden {
       display: none;
   }
+
 button > .spinner.is-hidden {
     display: none;
 }
+
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner::before {
+  animation: changeContent .9s linear infinite;
+  display: block;
+  content: "⠋";
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+@keyframes changeContent {
+  10% { content: "⠙"; }
+  20% { content: "⠹"; }
+  30% { content: "⠸"; }
+  40% { content: "⠼"; }
+  50% { content: "⠴"; }
+  60% { content: "⠦"; }
+  70% { content: "⠧"; }
+  80% { content: "⠇"; }
+  90% { content: "⠏"; }
+}
+
+

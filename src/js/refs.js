@@ -4,6 +4,5 @@ export const refs = {
     loadMoreBtn: document.querySelector('.js-load-btn'),
     submitBtn: document.querySelector('.js-submit-btn'),
     galleryList: document.querySelector('.gallery__list'),
-    label: document.querySelector('.label'),
    spinner: document.querySelector('.spinner'),
 }

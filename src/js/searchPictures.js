@@ -30,7 +30,11 @@ refs.galleryList.addEventListener('click', onOpenBasicLightbox);
 async function onSearchPictures(e) {
   e.preventDefault();
   refs.loadMoreBtn.style.visibility = 'hidden';
+  
+  
 if(!e.currentTarget.elements.query.value.trim()) {
+    clearInput()
+    refs.loadMoreBtn.style.visibility = 'visible';
     return error({
         text: 'Введите коректные данные для поиска картинок. Например, <кошка>',
         delay: 2000,
@@ -45,16 +49,21 @@ if(!e.currentTarget.elements.query.value.trim()) {
         refs.loadMoreBtn.style.visibility = 'visible';
         refs.input.value = '';
             } 
-    if(!pictures.length) {
+
+            if(!pictures.length) {
          alert({
             text: 'Введите коректные данные для поиска картинок. Например, <кошка>',
             delay: 2000
         });  
     }
-   
+
 } catch (error) {
       console.log(error.message);
   }
+}
+
+function clearInput() {
+    refs.galleryList.innerHTML = ''; 
 }
 
 
