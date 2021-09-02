@@ -69,15 +69,15 @@ function clearInput() {
 }
 
 
-// ==load More Button==
+// ==Scroll==
 
 async function onLoaderBtn() {
     state.page += 1;
     const pictures = await getPictures(state.value, state.page);
     refs.galleryList.insertAdjacentHTML('beforeend', itemCardsImage(pictures))
-    if(state.page === 2) {
-        const observer = new IntersectionObserver(onLoaderBtn, options);
-        observer.observe(refs.loadMoreBtn);
+    if(state.page === 2) {     
+            const observer = new IntersectionObserver(onLoaderBtn, options);
+            observer.observe(refs.loadMoreBtn)
     } 
 }
 

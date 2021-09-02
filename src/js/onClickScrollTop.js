@@ -23,19 +23,3 @@ function onVisibleBtn () {
         });
 
  }
-
-
-
-//  refs.btnToTop.addEventListener('scroll', onClickToScrollTop);
-
-//  async function onClickToScrollTop() {
-
-
-//   if(document.body.btnToTop > document.documentElement.clientHeight) {
-//       window.scrollTo(0, 0);
-//       refs.btnToTop.classList.remove('is-hidden');
-//      } else {
-//       refs.btnToTop.classList.add('is-hidden');
-//      }
-
-// }
