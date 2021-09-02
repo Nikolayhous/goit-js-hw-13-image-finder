@@ -16,9 +16,7 @@ function onVisibleBtn () {
     };
 
   function onClickScrollTop() {
-
         window.scrollTo(0, 0);
-       
  }
 
 
