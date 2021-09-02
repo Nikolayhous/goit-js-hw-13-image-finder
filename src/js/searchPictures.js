@@ -25,12 +25,14 @@ refs.loadMoreBtn.style.visibility = 'hidden';
 refs.searchForm.addEventListener('submit', onSearchPictures);
 refs.loadMoreBtn.addEventListener('click', onLoaderBtn);
 refs.galleryList.addEventListener('click', onOpenBasicLightbox);
+// refs.btnToTop.addEventListener('click', onClickToScrollTop)
+
 
 
 async function onSearchPictures(e) {
   e.preventDefault();
   refs.loadMoreBtn.style.visibility = 'hidden';
-  
+
   
 if(!e.currentTarget.elements.query.value.trim()) {
     clearInput()
@@ -40,6 +42,7 @@ if(!e.currentTarget.elements.query.value.trim()) {
         delay: 2000,
     });  
 }
+
   try {
     state.value = e.currentTarget.elements.query.value;
     const pictures = await getPictures(state.value, state.page);
@@ -50,7 +53,7 @@ if(!e.currentTarget.elements.query.value.trim()) {
         refs.input.value = '';
             } 
 
-            if(!pictures.length) {
+            else if(!pictures.length) {
          alert({
             text: 'Введите коректные данные для поиска картинок. Например, <кошка>',
             delay: 2000
@@ -61,6 +64,7 @@ if(!e.currentTarget.elements.query.value.trim()) {
       console.log(error.message);
   }
 }
+
 
 function clearInput() {
     refs.galleryList.innerHTML = ''; 
@@ -76,8 +80,13 @@ async function onLoaderBtn() {
     if(state.page === 2) {
         const observer = new IntersectionObserver(onLoaderBtn, options);
         observer.observe(refs.loadMoreBtn);
-    }
+        // refs.btnToTop.classList.remove('is-hidden');
+    } 
 }
+
+// function onClickToScrollTop() {
+//     window.scrollTo(0, 0);
+// }
 
 
 // ==basicLightbox==
