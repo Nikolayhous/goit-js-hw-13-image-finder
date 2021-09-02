@@ -16,12 +16,9 @@ function onVisibleBtn () {
     };
 
   function onClickScrollTop() {
-    const scroll = window.pageYOffset;
-    const height = document.documentElement.clientHeight;
-    if(scroll > height) {
-        
+
         window.scrollTo(0, 0);
-       } 
+       
  }
 
 
