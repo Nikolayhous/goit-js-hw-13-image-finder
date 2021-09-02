@@ -25,8 +25,6 @@ refs.loadMoreBtn.style.visibility = 'hidden';
 refs.searchForm.addEventListener('submit', onSearchPictures);
 refs.loadMoreBtn.addEventListener('click', onLoaderBtn);
 refs.galleryList.addEventListener('click', onOpenBasicLightbox);
-// refs.btnToTop.addEventListener('click', onClickToScrollTop)
-
 
 
 async function onSearchPictures(e) {
@@ -38,7 +36,7 @@ if(!e.currentTarget.elements.query.value.trim()) {
     clearInput()
     refs.loadMoreBtn.style.visibility = 'visible';
     return error({
-        text: 'Введите коректные данные для поиска картинок. Например, <кошка>',
+        text: 'Введите коректные данные для поиска картинок. Например, <кот>',
         delay: 2000,
     });  
 }
@@ -55,7 +53,7 @@ if(!e.currentTarget.elements.query.value.trim()) {
 
             else if(!pictures.length) {
          alert({
-            text: 'Введите коректные данные для поиска картинок. Например, <кошка>',
+            text: 'Введите коректные данные для поиска картинок. Например, <кот>',
             delay: 2000
         });  
     }
@@ -80,14 +78,8 @@ async function onLoaderBtn() {
     if(state.page === 2) {
         const observer = new IntersectionObserver(onLoaderBtn, options);
         observer.observe(refs.loadMoreBtn);
-        // refs.btnToTop.classList.remove('is-hidden');
     } 
 }
-
-// function onClickToScrollTop() {
-//     window.scrollTo(0, 0);
-// }
-
 
 // ==basicLightbox==
 
