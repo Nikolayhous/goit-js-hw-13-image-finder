@@ -85,4 +85,4 @@ var t,e=arguments[3];!function(e,n){"object"==typeof exports&&"undefined"!=typeo
 },{"./refs":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/searchPictures"),require("./js/onClickScrollTop");
 },{"./sass/main.scss":"clu1","./js/searchPictures":"d6S4","./js/onClickScrollTop":"mtNg"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-13-image-finder/src.11e17d7e.js.map
+//# sourceMappingURL=/goit-js-hw-13-image-finder/src.045ce6d4.js.map
