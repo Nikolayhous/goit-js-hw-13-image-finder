@@ -85,7 +85,7 @@ async function onLoaderBtn() {
 
 function onOpenBasicLightbox(e) {
     e.preventDefault();
-    if(e.currentTarget.nodeName === 'IMG') {
+    if(e.target.nodeName !== 'IMG') {
    return;
     } 
         
@@ -93,7 +93,10 @@ function onOpenBasicLightbox(e) {
         <img src="${e.target.dataset.source}" width="800" height="600">
     `)
     instance.show();
-
+    window.addEventListener('keydown', e => {
+        if(e.code === 'Escape') {
+            instance.close();
+        }
+    });
     }
-
 
