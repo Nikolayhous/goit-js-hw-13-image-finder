@@ -33,8 +33,8 @@ async function onSearchPictures(e) {
 
   
 if(!e.currentTarget.elements.query.value.trim()) {
-    clearInput()
     refs.loadMoreBtn.style.visibility = 'visible';
+    clearInput()
     return error({
         text: 'Введите коректные данные для поиска картинок. Например, <кот>',
         delay: 2000,
